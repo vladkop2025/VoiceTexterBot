@@ -46,7 +46,6 @@ namespace VoiceTexterBot
                 ////await botClient.SendTextMessageAsync(update.Message.Chat.Id, "Вы отправили сообщение: " + update.Message.Text, cancellationToken: cancellationToken);
                 //await _telegramClient.SendMessageAsync(update.Message.Chat.Id, "Вы отправили сообщение", cancellationToken: cancellationToken);
                 //return;
-
                 Console.WriteLine($"Получено сообщение {update.Message.Text}");
                 await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, $"Вы отправили сообщение {update.Message.Text}", cancellationToken: cancellationToken);
                 return;
