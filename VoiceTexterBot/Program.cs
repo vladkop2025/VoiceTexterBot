@@ -26,7 +26,7 @@ namespace UtilityBot
 
         static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("5393213794:AAEh8YHDFUxCiA2ViWAqQ2leX-zPvGcfvCc"));
+            services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("7034725879:AAHJ_kx6Wix-Z10DRScj1vipTxMUKYWBglA"));
             services.AddHostedService<Bot>();
         }
     }
