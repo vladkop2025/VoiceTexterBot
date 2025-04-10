@@ -50,6 +50,8 @@ namespace UtilityBot
                 {
                     case MessageType.Text:
                         //считаем количество символов в отправленном текстовом сообщении
+                        Console.WriteLine($"Получено сообщение {update.Message.Text}");
+                        Console.WriteLine($"Длина сообщения: {update.Message.Text.Length} знаков");
                         await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Длина сообщения: {update.Message.Text.Length} знаков", cancellationToken: cancellationToken);
                         return;
                     default: // unsupported message
