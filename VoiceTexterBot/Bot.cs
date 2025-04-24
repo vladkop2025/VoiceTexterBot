@@ -38,7 +38,7 @@ namespace VoiceTexterBot
 
         //Bot.cs держит активное подключение в методе ExecuteAsync(...)
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-        {
+        {                 
             _telegramClient.StartReceiving(
                 HandleUpdateAsync,
                 HandleErrorAsync,
