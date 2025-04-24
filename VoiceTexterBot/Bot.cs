@@ -8,8 +8,17 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
+//NuGet-пакет Telegram.Bot версия 22.4.4
+//NuGet-пакет Microsoft.Extensions.Hosting версия
+//(предоставляет ряд классов и методов, позволяющих превратить обычное приложение в постоянно активный сервис, способный обслуживать
+//входящие запросы или самостоятельно выполнять требуемые постоянные действия - решает задачу по превращению обычного консольного приложения в постоянно активный сервис)
 namespace UtilityBot
 {
+
+    //Теперь Bot.cs наследуется от BackgroundService, а значит, приобретает признаки постоянно активного сервиса.
+    //Поскольку родительский класс BackgroundService реализует интерфейс IHostedService, наш бот также получает метод ExecuteAsync(...), 
+    //благодаря которому бот сможет быть постоянно активным.
+
     class Bot : BackgroundService
     {
         /// <summary>
@@ -22,6 +31,9 @@ namespace UtilityBot
             _telegramClient = telegramClient;
         }
 
+        //ExecuteAsync активирует нашего бота, запуская его в постоянно активный режим
+        //В качестве первых двух входных параметров метод StartReceiving(...) получает делегаты Func<T, …>, которые указывают на уже добавленные
+        //методы HandleUpdateAsync и HandleErrorAsync.Благодаря этому вызову должна происходить первичная активация нашего бота на постоянное получение обновлений.
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _telegramClient.StartReceiving(
@@ -55,6 +67,7 @@ namespace UtilityBot
                         await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Длина сообщения: {update.Message.Text.Length} знаков", cancellationToken: cancellationToken);
                         return;
                     default: // unsupported message
+                        Console.WriteLine($"Данный тип сообщений не поддерживается. Пожалуйста отправьте текст.");
                         await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Данный тип сообщений не поддерживается. Пожалуйста отправьте текст.", cancellationToken: cancellationToken);
                         return;
                 }
