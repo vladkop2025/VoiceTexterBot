@@ -8,6 +8,8 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
+// 3/8   11.2. Telegram-бот: создаём проект
+
 //NuGet-пакет Telegram.Bot версия 22.4.4
 //NuGet-пакет Microsoft.Extensions.Hosting версия
 //(предоставляет ряд классов и методов, позволяющих превратить обычное приложение в постоянно активный сервис, способный обслуживать
