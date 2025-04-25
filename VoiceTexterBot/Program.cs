@@ -6,12 +6,13 @@ using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
 using VoiceTexterBot.Configuration;
 using VoiceTexterBot.Controllers;
-using VoiceTexterBot.Services;
+using VoiceTexterBot.Controllers.VoiceTexterBot.Controllers;
+using VoiceTexterBot.Services; 
 
 //Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот 
 //6 / 8   11.5.Telegram - бот: обработка аудио Преобразование файлов
 
-//Ffmpeg - утилита для работы с медиа-файлами, умеющая преобразовать практически что угодно во что угодно
+//Ffmpeg - утилита для работы с медиа-файлами, умеющая преобразовать практически что угодно во что угодно 
 // FfmpegCore  - NuGet - пакет для более удобной работы с ней
 namespace UtilityBot
 {
