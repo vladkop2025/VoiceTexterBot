@@ -8,7 +8,7 @@ using VoiceTexterBot.Configuration;
 using VoiceTexterBot.Controllers;
 using VoiceTexterBot.Services;
 
-//Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот
+//Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот 
 // 4/8   11.3. Telegram-бот: внутренняя архитектура
 namespace UtilityBot
 {
