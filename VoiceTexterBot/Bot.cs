@@ -9,7 +9,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using VoiceTexterBot.Controllers;
 
-// 3/8   11.2. Telegram-бот: создаём проект
+// 4/8   11.3. Telegram-бот: внутренняя архитектура
 
 //NuGet-пакет Telegram.Bot версия 22.4.4
 //NuGet-пакет Microsoft.Extensions.Hosting версия
