@@ -37,7 +37,8 @@ namespace VoiceTexterBot.Services
                 // Скачиваем файл
                 //В версии Telegram.Bot v22.4.4 метод DownloadFileAsync был удален, и вместо него теперь нужно использовать
                 //TelegramBotClient.DownloadFileStreamAsync или скачивание через HttpClient.
-                await _telegramBotClient.DownloadFileAsync(file.FilePath, destinationStream, ct);
+                //await _telegramBotClient.DownloadFileAsync(file.FilePath, destinationStream, ct);
+                await _telegramBotClient.DownloadFile(file.FilePath, destinationStream, ct);
             }
         }
 
