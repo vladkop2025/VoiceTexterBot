@@ -9,7 +9,7 @@ using VoiceTexterBot.Controllers;
 using VoiceTexterBot.Services;
 
 //Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот 
-// 5/8   11.4. Telegram-бот: интерфейс
+//6 / 8   11.5.Telegram - бот: обработка аудио
 namespace UtilityBot
 {
     static class Program
@@ -31,6 +31,9 @@ namespace UtilityBot
 
         static void ConfigureServices(IServiceCollection services)
         {
+            // Подключаем обработчик файлов
+            services.AddSingleton<IFileHandler, AudioFileHandler>();
+
             //Подключаем инициализацию конфигурации 
             AppSettings appSettings = BuildAppSettings();
             services.AddSingleton(appSettings);
@@ -56,11 +59,14 @@ namespace UtilityBot
         }
 
         // метод, который будет инициализировать конфигурацию
-        static AppSettings BuildAppSettings()
+         static AppSettings BuildAppSettings()
         {
             return new AppSettings()
             {
-                BotToken = "8110263485:AAEjK6WqRL5yTl0Jn_Yxy4JnzkRT54TTy-M"
+                DownloadsFolder = "C:\\Users\\vladk\\Downloads",
+                BotToken = "8110263485:AAEjK6WqRL5yTl0Jn_Yxy4JnzkRT54TTy-M",
+                AudioFileName = "audio",
+                InputAudioFormat = "ogg",
             };
         }
     }
