@@ -7,13 +7,14 @@ using Telegram.Bot;
 using VoiceTexterBot.Configuration;
 using VoiceTexterBot.Controllers;
 using VoiceTexterBot.Controllers.VoiceTexterBot.Controllers; 
-using VoiceTexterBot.Services; 
+using VoiceTexterBot.Services;
 
 //Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот 
-//6 / 8   11.5.Telegram - бот: обработка аудио Преобразование файлов
+//6 / 8   11.5.Telegram - бот: обработка аудио Логика распознавания
 
-//Ffmpeg - утилита для работы с медиа-файлами, умеющая преобразовать практически что угодно во что угодно 
+// Ffmpeg - утилита для работы с медиа-файлами, умеющая преобразовать практически что угодно во что угодно 
 // FfmpegCore  - NuGet - пакет для более удобной работы с ней 
+// Распознавание голоса у нас будет происходить с помощью отдельной библиотеки Vosk 
 namespace UtilityBot
 {
     static class Program

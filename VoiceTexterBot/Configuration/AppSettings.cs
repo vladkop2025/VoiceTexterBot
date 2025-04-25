@@ -29,11 +29,12 @@ namespace VoiceTexterBot.Configuration
         /// <summary>
         /// Формат аудио при загрузке
         /// </summary>
-        public int InputAudioBitrate { get; set; }
+        public float InputAudioBitrate { get; set; }
 
         /// <summary>
         /// битрейт при загрузке
         /// </summary>
         public string OutputAudioFormat { get; set; }
+
     }
 }
