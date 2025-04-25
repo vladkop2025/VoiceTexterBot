@@ -7,6 +7,7 @@ using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using VoiceTexterBot.Controllers;
 
 // 3/8   11.2. Telegram-бот: создаём проект
 
@@ -28,9 +29,24 @@ namespace UtilityBot
         /// </summary>
         private ITelegramBotClient _telegramClient;
 
-        public Bot(ITelegramBotClient telegramClient)
+        // Контроллеры различных видов сообщений
+        private InlineKeyboardController _inlineKeyboardController;
+        private TextMessageController _textMessageController;
+        private VoiceMessageController _voiceMessageController;
+        private DefaultMessageController _defaultMessageController;
+
+        public Bot(
+            ITelegramBotClient telegramClient,
+            InlineKeyboardController inlineKeyboardController,
+            TextMessageController textMessageController,
+            VoiceMessageController voiceMessageController,
+            DefaultMessageController defaultMessageController)
         {
             _telegramClient = telegramClient;
+            _inlineKeyboardController = inlineKeyboardController;
+            _textMessageController = textMessageController;
+            _voiceMessageController = voiceMessageController;
+            _defaultMessageController = defaultMessageController;
         }
 
         //ExecuteAsync активирует нашего бота, запуская его в постоянно активный режим
@@ -47,13 +63,12 @@ namespace UtilityBot
             Console.WriteLine("Bot started");
         }
 
-        // Обрабатываем входящие сообщения из Telegram Bot API: https://core.telegram.org/bots/api#message
         async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             //  Обрабатываем нажатия на кнопки  из Telegram Bot API: https://core.telegram.org/bots/api#callbackquery
             if (update.Type == UpdateType.CallbackQuery)
             {
-                await _telegramClient.SendTextMessageAsync(update.CallbackQuery.From.Id, $"Данный тип сообщений не поддерживается. Пожалуйста отправьте текст.", cancellationToken: cancellationToken);
+                await _inlineKeyboardController.Handle(update.CallbackQuery, cancellationToken);
                 return;
             }
 
@@ -62,15 +77,14 @@ namespace UtilityBot
             {
                 switch (update.Message!.Type)
                 {
-                    case MessageType.Text:
-                        //считаем количество символов в отправленном текстовом сообщении
-                        Console.WriteLine($"Получено сообщение {update.Message.Text}");
-                        Console.WriteLine($"Длина сообщения: {update.Message.Text.Length} знаков");
-                        await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Длина сообщения: {update.Message.Text.Length} знаков", cancellationToken: cancellationToken);
+                    case MessageType.Voice:
+                        await _voiceMessageController.Handle(update.Message, cancellationToken);
                         return;
-                    default: // unsupported message
-                        Console.WriteLine($"Данный тип сообщений не поддерживается. Пожалуйста отправьте текст.");
-                        await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Данный тип сообщений не поддерживается. Пожалуйста отправьте текст.", cancellationToken: cancellationToken);
+                    case MessageType.Text:
+                        await _textMessageController.Handle(update.Message, cancellationToken);
+                        return;
+                    default:
+                        await _defaultMessageController.Handle(update.Message, cancellationToken);
                         return;
                 }
             }
@@ -86,10 +100,10 @@ namespace UtilityBot
                 _ => exception.ToString()
             };
 
-            // Выводим в консоль информацию об ошибке
             Console.WriteLine(errorMessage);
-            Console.WriteLine("Waiting 10 seconds before retry");
+            Console.WriteLine("Ожидаем 10 секунд перед повторным подключением.");
             Thread.Sleep(10000);
+
             return Task.CompletedTask;
         }
     }
