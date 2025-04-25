@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
 
+//Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот
+// 3 / 8   11.2.Telegram - бот: создаём проект
 namespace UtilityBot
 {
     static class Program
