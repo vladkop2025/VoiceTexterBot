@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
 using VoiceTexterBot.Configuration;
 using VoiceTexterBot.Controllers;
-using VoiceTexterBot.Controllers.VoiceTexterBot.Controllers;
+using VoiceTexterBot.Controllers.VoiceTexterBot.Controllers; 
 using VoiceTexterBot.Services; 
 
 //Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот 
