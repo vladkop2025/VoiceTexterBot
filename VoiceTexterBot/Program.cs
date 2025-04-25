@@ -13,7 +13,7 @@ using VoiceTexterBot.Services;
 //6 / 8   11.5.Telegram - бот: обработка аудио Преобразование файлов
 
 //Ffmpeg - утилита для работы с медиа-файлами, умеющая преобразовать практически что угодно во что угодно 
-// FfmpegCore  - NuGet - пакет для более удобной работы с ней
+// FfmpegCore  - NuGet - пакет для более удобной работы с ней 
 namespace UtilityBot
 {
     static class Program
