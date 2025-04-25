@@ -13,7 +13,7 @@ namespace VoiceTexterBot.Controllers
     {
         private readonly ITelegramBotClient _telegramClient;
 
-        public VoiceMessageController(ITelegramBotClient telegramBotClient)
+        public VoiceMessageController(ITelegramBotClient telegramBotClient) 
         {
             _telegramClient = telegramBotClient;
         }
