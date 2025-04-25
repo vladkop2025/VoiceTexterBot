@@ -51,7 +51,7 @@ namespace UtilityBot
 
         //ExecuteAsync активирует нашего бота, запуская его в постоянно активный режим
         //В качестве первых двух входных параметров метод StartReceiving(...) получает делегаты Func<T, …>, которые указывают на уже добавленные
-        //методы HandleUpdateAsync и HandleErrorAsync.Благодаря этому вызову должна происходить первичная активация нашего бота на постоянное получение обновлений.
+        //методы HandleUpdateAsync и HandleErrorAsync.Благодаря этому вызову должна происходить первичная активация нашего бота на постоянное получение обновлений. 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _telegramClient.StartReceiving(
