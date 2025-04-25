@@ -8,6 +8,7 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using VoiceTexterBot.Controllers;
+using VoiceTexterBot.Controllers.VoiceTexterBot.Controllers;
 
 // 5/8    11.5. Telegram-бот: обработка аудио Преобразование файлов
 

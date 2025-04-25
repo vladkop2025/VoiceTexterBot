@@ -9,7 +9,10 @@ using VoiceTexterBot.Controllers;
 using VoiceTexterBot.Services;
 
 //Профессия C#-разработчик Язык C# Модуль 11. Telegram-бот 
-//6 / 8   11.5.Telegram - бот: обработка аудио
+//6 / 8   11.5.Telegram - бот: обработка аудио Преобразование файлов
+
+//Ffmpeg - утилита для работы с медиа-файлами, умеющая преобразовать практически что угодно во что угодно
+// FfmpegCore  - NuGet - пакет для более удобной работы с ней
 namespace UtilityBot
 {
     static class Program
@@ -59,7 +62,7 @@ namespace UtilityBot
         }
 
         // метод, который будет инициализировать конфигурацию
-         static AppSettings BuildAppSettings()
+        static AppSettings BuildAppSettings()
         {
             return new AppSettings()
             {
@@ -67,6 +70,8 @@ namespace UtilityBot
                 BotToken = "8110263485:AAEjK6WqRL5yTl0Jn_Yxy4JnzkRT54TTy-M",
                 AudioFileName = "audio",
                 InputAudioFormat = "ogg",
+                OutputAudioFormat = "wav", // Новое поле
+                InputAudioBitrate = 48000,
             };
         }
     }

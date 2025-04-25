@@ -34,8 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FFMpegCore, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FFMpegCore.5.2.0\lib\netstandard2.0\FFMpegCore.dll</HintPath>
+    </Reference>
     <Reference Include="IndexRange, Version=1.0.3.0, Culture=neutral, PublicKeyToken=35e6a3c4212514c6, processorArchitecture=MSIL">
       <HintPath>..\packages\IndexRange.1.0.3\lib\net47\IndexRange.dll</HintPath>
+    </Reference>
+    <Reference Include="Instances, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Instances.3.0.1\lib\netstandard2.0\Instances.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.3\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -188,10 +194,13 @@
     <Compile Include="Services\IFileHandler.cs" />
     <Compile Include="Services\MemoryStorage.cs" />
     <Compile Include="Services\IStorage.cs" />
+    <Compile Include="Utilites\AudioConverter.cs" />
+    <Compile Include="Utilites\DirectoryExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
