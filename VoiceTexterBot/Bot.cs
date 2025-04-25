@@ -9,7 +9,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using VoiceTexterBot.Controllers;
 
-// 5/8   11.4. Telegram-бот: интерфейс
+// 5/8    11.5. Telegram-бот: обработка аудио Преобразование файлов
 
 //NuGet-пакет Telegram.Bot версия 22.4.4
 //NuGet-пакет Microsoft.Extensions.Hosting версия
