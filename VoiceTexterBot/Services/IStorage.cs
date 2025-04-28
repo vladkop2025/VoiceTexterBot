@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UtilityBot;
 
-namespace VoiceTexterBot
+namespace VoiceTexterBot.Services
 {
     public interface IStorage
     {
