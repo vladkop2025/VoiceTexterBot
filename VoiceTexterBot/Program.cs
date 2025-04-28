@@ -28,6 +28,10 @@ namespace UtilityBot
 
         static void ConfigureServices(IServiceCollection services)
         {
+
+            //Регистрируем объект MemoryStorage
+            services.AddSingleton<IStorage, MemoryStorage>();
+
             // Регистрируем объект TelegramBotClient c токеном подключения
             //На этот раз сообщений об ошибках подключения не наблюдается, бот успешно «подцепился» к Telegram Bot API. Остаётся только написать ему в чат!
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("8110263485:AAEjK6WqRL5yTl0Jn_Yxy4JnzkRT54TTy-M"));
