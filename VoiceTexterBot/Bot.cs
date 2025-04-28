@@ -101,9 +101,11 @@ namespace UtilityBot
             {
                 case "count":
                     result = $"В вашем сообщении {message.Text.Length} символов";
+                    Console.WriteLine($"В вашем сообщении {message.Text.Length} символов");
                     break;
                 case "sum":
                     result = CalculateSum(message.Text);
+                    Console.WriteLine(result);
                     break;
                 default:
                     result = "Сначала выберите функцию в главном меню (/start)";
